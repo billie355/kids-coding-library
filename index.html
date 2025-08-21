@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kids Code Library – Full Courses</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shapes" aria-hidden="true"></div>
+  <header class="app-header">
+    <div class="brand">
+      <img src="assets/illustrations/mascot.svg" alt="Mascot" class="logo"/>
+      <div>
+        <h1>Kids Code Library</h1>
+        <p class="tagline">Full courses. Simple words. Fun projects.</p>
+      </div>
+    </div>
+    <div class="tools">
+      <input id="searchBox" type="search" placeholder="Search lessons… (e.g., arrays)" aria-label="Search lessons"/>
+      <button id="clearSearch" class="ghost">Clear</button>
+      <div class="progress-pill" title="Lessons completed">
+        <span id="progressCount">0</span>/<span id="progressTotal">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <nav id="subjects" aria-label="Subjects"></nav>
+      <div class="sidebar-foot">
+        <button id="exportProgress" class="ghost">Export Progress</button>
+        <label class="import">
+          <input type="file" id="importProgress" accept="application/json" hidden>
+          <span class="ghost">Import Progress</span>
+        </label>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="hero">
+        <div class="hero-text">
+          <h2>Choose your book and start your adventure! ✨</h2>
+          <p>Each book is a full course with many lessons and friendly projects. Click a subject on the left, then pick a lesson. You can print lessons or mark them as done.</p>
+          <div class="hero-actions">
+            <button id="toggleMotion" class="ghost">Toggle Motion</button>
+            <button id="printLesson" class="ghost">Print</button>
+            <button id="resetProgress" class="ghost danger">Reset Progress</button>
+          </div>
+        </div>
+        <img src="assets/illustrations/hero.svg" alt="Kids coding" class="hero-img"/>
+      </div>
+
+      <div id="subjectHeader" class="subject-header" hidden>
+        <img id="subjectIcon" alt="Subject icon"/>
+        <div>
+          <h2 id="subjectTitle"></h2>
+          <p id="subjectDesc" class="muted"></p>
+        </div>
+      </div>
+
+      <ol class="toc" id="toc"></ol>
+      <article class="lesson" id="lesson" hidden></article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+  <div>Created by 
+    <a href="https://www.facebook.com/izanami.billie" target="_blank">
+      Billie
+    </a>
+  </div>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

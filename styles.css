@@ -1,0 +1,79 @@
+/* Kids Code Library v2 – White, playful, more animated */
+:root{
+  --bg:#ffffff; --card:#ffffff; --text:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  --blue:#2563eb; --amber:#f59e0b; --mint:#10b981; --pink:#ec4899; --violet:#7c3aed;
+  --shadow: 0 12px 35px rgba(31,41,55,.10);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0; font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--text); background:var(--bg)}
+
+.app-header{position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:.9rem 1.2rem; border-bottom:1px solid var(--line); background:rgba(255,255,255,.85); backdrop-filter:saturate(160%) blur(6px)}
+.brand{display:flex; align-items:center; gap:.8rem}
+.brand .logo{width:44px; height:44px}
+.brand h1{margin:0; font-size:1.35rem}
+.brand .tagline{margin:.15rem 0 0 0; color:var(--muted); font-size:.9rem}
+.tools{display:flex; align-items:center; gap:.5rem}
+.tools input[type=search]{width:min(52vw,520px); padding:.65rem .8rem; border-radius:12px; border:1px solid var(--line); background:#fff}
+.ghost{background:#fff; border:1px solid var(--line); padding:.5rem .8rem; border-radius:12px; cursor:pointer}
+.ghost:hover{border-color:#d1d5db}
+.ghost.danger{color:#b91c1c; border-color:#fecaca}
+.progress-pill{padding:.4rem .6rem; border-radius:999px; background:#eef2ff; border:1px solid #c7d2fe; color:#3730a3}
+
+.layout{display:grid; grid-template-columns:300px 1fr; gap:1rem; padding:1rem}
+.sidebar{position:sticky; top:78px; align-self:start; max-height:calc(100dvh - 96px); overflow:auto; border:1px solid var(--line); border-radius:16px; background:var(--card); box-shadow:var(--shadow)}
+.sidebar-foot{display:flex; gap:.5rem; padding:.75rem; border-top:1px solid var(--line)}
+.sidebar .subject-btn{width:100%; display:flex; align-items:center; gap:.7rem; background:#fff; border:1px solid var(--line); border-radius:14px; padding:.65rem .7rem; cursor:pointer; transition:.2s transform, .2s box-shadow}
+.sidebar .subject-btn + .subject-btn{margin:.6rem .75rem}
+.sidebar .subject-btn:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
+.sidebar .subject-btn img{width:28px;height:28px}
+.sidebar nav{padding:.75rem}
+
+.content{display:grid; gap:1rem}
+.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:1rem; align-items:center; padding:1rem; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow)}
+.hero-text h2{margin:.2rem 0 0 0}
+.hero-img{width:100%; height:auto}
+
+.subject-header{display:flex; align-items:center; gap:.7rem; padding:1rem; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow)}
+.subject-header img{width:44px;height:44px}
+
+.toc{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:.8rem}
+.toc li{background:#fff; border:1px solid var(--line); border-radius:16px; padding:.85rem; box-shadow:var(--shadow); cursor:pointer; transition:.2s transform, .2s box-shadow; display:grid; gap:.45rem}
+.toc li:hover{transform:translateY(-2px); box-shadow:0 16px 40px rgba(31,41,55,.12)}
+.toc h4{margin:.1rem 0}
+.toc .meta{color:var(--muted); font-size:.9rem}
+
+.lesson{background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:1rem; animation:pop .25s ease}
+.lesson header{display:flex; align-items:center; gap:.7rem}
+.lesson header img{width:48px;height:48px}
+.lesson h2{margin:.2rem 0}
+.lesson .badges{display:flex; gap:.4rem; flex-wrap:wrap}
+.badge{font-size:.75rem; padding:.25rem .5rem; border-radius:999px; border:1px solid var(--line); background:#f8fafc}
+.note{border-left:4px solid var(--amber); background:#fff7ed; padding:.6rem .8rem; border-radius:12px;}
+.lesson pre{background:#0b1220; color:#e5e7eb; padding:1rem; border-radius:12px; overflow:auto}
+.lesson code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.95rem}
+.actions{display:flex; gap:.5rem; margin-top:.6rem}
+.actions button{background:var(--blue); color:#fff; border:none; padding:.55rem .9rem; border-radius:12px; cursor:pointer}
+.actions button.secondary{background:var(--mint)}
+.actions button.ghost{background:#fff; color:var(--text); border:1px solid var(--line)}
+
+.app-footer{border-top:1px solid var(--line); padding:.9rem 1.2rem; display:flex; justify-content:space-between; align-items:center}
+.mini{color:var(--muted); font-size:.9rem}
+
+/* background playful shapes */
+.bg-shapes{position:fixed; inset:0; pointer-events:none; background:
+  radial-gradient( 600px 200px at -10% -20%, rgba(37,99,235,.08), transparent),
+  radial-gradient( 700px 220px at 110% -10%, rgba(236,72,153,.08), transparent),
+  radial-gradient( 500px 200px at -20% 110%, rgba(16,185,129,.08), transparent)}
+
+@keyframes pop{from{opacity:.6; transform:scale(.98)} to{opacity:1; transform:scale(1)}}
+
+@media (max-width: 900px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:relative; top:auto}
+  .hero{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bg-shapes{display:none}
+}
